@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      League #<%= @the_league.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/leagues">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_league/<%= @the_league.id %>">
+          Delete league
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Name
+      </dt>
+      <dd>
+        <%= @the_league.name %>
+      </dd>
+
+      <dt>
+        Year
+      </dt>
+      <dd>
+        <%= @the_league.year %>
+      </dd>
+
+      <dt>
+        League type
+      </dt>
+      <dd>
+        <%= @the_league.league_type_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_league.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_league.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit league
+    </h2>
+
+    <form action="/modify_league/<%= @the_league.id %>"  method="post" >
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name" value="<%= @the_league.name %>">
+      </div>
+
+      <div>
+        <label for="year_box">
+          Year
+        </label>
+
+        <input type="text" id="year_box" name="query_year" value="<%= @the_league.year %>">
+      </div>
+
+      <div>
+        <label for="league_type_id_box">
+          League type
+        </label>
+
+        <input type="text" id="league_type_id_box" name="query_league_type_id" value="<%= @the_league.league_type_id %>">
+      </div>
+
+      <button>
+        Update league
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

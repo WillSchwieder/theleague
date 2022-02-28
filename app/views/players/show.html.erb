@@ -1,0 +1,116 @@
+<div>
+  <div>
+    <h1>
+      Player #<%= @the_player.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/players">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_player/<%= @the_player.id %>">
+          Delete player
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Firstname
+      </dt>
+      <dd>
+        <%= @the_player.firstname %>
+      </dd>
+
+      <dt>
+        Lastname
+      </dt>
+      <dd>
+        <%= @the_player.lastname %>
+      </dd>
+
+      <dt>
+        Positionid
+      </dt>
+      <dd>
+        <%= @the_player.positionid %>
+      </dd>
+
+      <dt>
+        Playerhash
+      </dt>
+      <dd>
+        <%= @the_player.playerhash %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_player.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_player.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit player
+    </h2>
+
+    <form action="/modify_player/<%= @the_player.id %>"  method="post" >
+      <div>
+        <label for="firstname_box">
+          Firstname
+        </label>
+
+        <input type="text" id="firstname_box" name="query_firstname" value="<%= @the_player.firstname %>">
+      </div>
+
+      <div>
+        <label for="lastname_box">
+          Lastname
+        </label>
+
+        <input type="text" id="lastname_box" name="query_lastname" value="<%= @the_player.lastname %>">
+      </div>
+
+      <div>
+        <label for="positionid_box">
+          Positionid
+        </label>
+
+        <input type="text" id="positionid_box" name="query_positionid" value="<%= @the_player.positionid %>">
+      </div>
+
+      <div>
+        <label for="playerhash_box">
+          Playerhash
+        </label>
+
+        <input type="text" id="playerhash_box" name="query_playerhash" value="<%= @the_player.playerhash %>">
+      </div>
+
+      <button>
+        Update player
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

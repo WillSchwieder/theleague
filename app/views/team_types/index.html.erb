@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all team types
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new team type
+    </h2>
+
+    <form action="/insert_team_type" method="post">
+      <div>
+        <label for="specialpower_box">
+          Specialpower
+        </label>
+
+        <input type="text" id="specialpower_box" name="query_specialpower">
+      </div>
+
+      <button>
+        Create team type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Specialpower
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_team_types.each do |a_team_type| %>
+      <tr>
+        <td>
+          <%= a_team_type.id %>
+        </td>
+
+        <td>
+          <%= a_team_type.specialpower %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_team_type.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_team_type.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/team_types/<%= a_team_type.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

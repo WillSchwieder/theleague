@@ -1,0 +1,326 @@
+<div>
+  <div>
+    <h1>
+      Fantasypoint #<%= @the_fantasypoint.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/fantasypoints">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_fantasypoint/<%= @the_fantasypoint.id %>">
+          Delete fantasypoint
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Passing yrd
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.passing_yrd %>
+      </dd>
+
+      <dt>
+        Passing td
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.passing_td %>
+      </dd>
+
+      <dt>
+        Int
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.int %>
+      </dd>
+
+      <dt>
+        Passing att
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.passing_att %>
+      </dd>
+
+      <dt>
+        Comp
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.comp %>
+      </dd>
+
+      <dt>
+        Rushing att
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.rushing_att %>
+      </dd>
+
+      <dt>
+        Rushing yrd
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.rushing_yrd %>
+      </dd>
+
+      <dt>
+        Rushing td
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.rushing_td %>
+      </dd>
+
+      <dt>
+        Rec
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.rec %>
+      </dd>
+
+      <dt>
+        Targets
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.targets %>
+      </dd>
+
+      <dt>
+        Receiving yrds
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.receiving_yrds %>
+      </dd>
+
+      <dt>
+        Fumble
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.fumble %>
+      </dd>
+
+      <dt>
+        Ppr fantasy points
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.ppr_fantasy_points %>
+      </dd>
+
+      <dt>
+        Standard fantasy pts
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.standard_fantasy_pts %>
+      </dd>
+
+      <dt>
+        Half ppr fantasy pts
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.half_ppr_fantasy_pts %>
+      </dd>
+
+      <dt>
+        Player
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.player_id %>
+      </dd>
+
+      <dt>
+        Team
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.team_id %>
+      </dd>
+
+      <dt>
+        Game
+      </dt>
+      <dd>
+        <%= @the_fantasypoint.game_id %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_fantasypoint.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_fantasypoint.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit fantasypoint
+    </h2>
+
+    <form action="/modify_fantasypoint/<%= @the_fantasypoint.id %>"  method="post" >
+      <div>
+        <label for="passing_yrd_box">
+          Passing yrd
+        </label>
+
+        <input type="text" id="passing_yrd_box" name="query_passing_yrd" value="<%= @the_fantasypoint.passing_yrd %>">
+      </div>
+
+      <div>
+        <label for="passing_td_box">
+          Passing td
+        </label>
+
+        <input type="text" id="passing_td_box" name="query_passing_td" value="<%= @the_fantasypoint.passing_td %>">
+      </div>
+
+      <div>
+        <label for="int_box">
+          Int
+        </label>
+
+        <input type="text" id="int_box" name="query_int" value="<%= @the_fantasypoint.int %>">
+      </div>
+
+      <div>
+        <label for="passing_att_box">
+          Passing att
+        </label>
+
+        <input type="text" id="passing_att_box" name="query_passing_att" value="<%= @the_fantasypoint.passing_att %>">
+      </div>
+
+      <div>
+        <label for="comp_box">
+          Comp
+        </label>
+
+        <input type="text" id="comp_box" name="query_comp" value="<%= @the_fantasypoint.comp %>">
+      </div>
+
+      <div>
+        <label for="rushing_att_box">
+          Rushing att
+        </label>
+
+        <input type="text" id="rushing_att_box" name="query_rushing_att" value="<%= @the_fantasypoint.rushing_att %>">
+      </div>
+
+      <div>
+        <label for="rushing_yrd_box">
+          Rushing yrd
+        </label>
+
+        <input type="text" id="rushing_yrd_box" name="query_rushing_yrd" value="<%= @the_fantasypoint.rushing_yrd %>">
+      </div>
+
+      <div>
+        <label for="rushing_td_box">
+          Rushing td
+        </label>
+
+        <input type="text" id="rushing_td_box" name="query_rushing_td" value="<%= @the_fantasypoint.rushing_td %>">
+      </div>
+
+      <div>
+        <label for="rec_box">
+          Rec
+        </label>
+
+        <input type="text" id="rec_box" name="query_rec" value="<%= @the_fantasypoint.rec %>">
+      </div>
+
+      <div>
+        <label for="targets_box">
+          Targets
+        </label>
+
+        <input type="text" id="targets_box" name="query_targets" value="<%= @the_fantasypoint.targets %>">
+      </div>
+
+      <div>
+        <label for="receiving_yrds_box">
+          Receiving yrds
+        </label>
+
+        <input type="text" id="receiving_yrds_box" name="query_receiving_yrds" value="<%= @the_fantasypoint.receiving_yrds %>">
+      </div>
+
+      <div>
+        <label for="fumble_box">
+          Fumble
+        </label>
+
+        <input type="text" id="fumble_box" name="query_fumble" value="<%= @the_fantasypoint.fumble %>">
+      </div>
+
+      <div>
+        <label for="ppr_fantasy_points_box">
+          Ppr fantasy points
+        </label>
+
+        <input type="text" id="ppr_fantasy_points_box" name="query_ppr_fantasy_points" value="<%= @the_fantasypoint.ppr_fantasy_points %>">
+      </div>
+
+      <div>
+        <label for="standard_fantasy_pts_box">
+          Standard fantasy pts
+        </label>
+
+        <input type="text" id="standard_fantasy_pts_box" name="query_standard_fantasy_pts" value="<%= @the_fantasypoint.standard_fantasy_pts %>">
+      </div>
+
+      <div>
+        <label for="half_ppr_fantasy_pts_box">
+          Half ppr fantasy pts
+        </label>
+
+        <input type="text" id="half_ppr_fantasy_pts_box" name="query_half_ppr_fantasy_pts" value="<%= @the_fantasypoint.half_ppr_fantasy_pts %>">
+      </div>
+
+      <div>
+        <label for="player_id_box">
+          Player
+        </label>
+
+        <input type="text" id="player_id_box" name="query_player_id" value="<%= @the_fantasypoint.player_id %>">
+      </div>
+
+      <div>
+        <label for="team_id_box">
+          Team
+        </label>
+
+        <input type="text" id="team_id_box" name="query_team_id" value="<%= @the_fantasypoint.team_id %>">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          Game
+        </label>
+
+        <input type="text" id="game_id_box" name="query_game_id" value="<%= @the_fantasypoint.game_id %>">
+      </div>
+
+      <button>
+        Update fantasypoint
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

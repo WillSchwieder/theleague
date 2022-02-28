@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      Game #<%= @the_game.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/games">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_game/<%= @the_game.id %>">
+          Delete game
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Home team
+      </dt>
+      <dd>
+        <%= @the_game.home_team_id %>
+      </dd>
+
+      <dt>
+        Away team
+      </dt>
+      <dd>
+        <%= @the_game.away_team_id %>
+      </dd>
+
+      <dt>
+        Week
+      </dt>
+      <dd>
+        <%= @the_game.week %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_game.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_game.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit game
+    </h2>
+
+    <form action="/modify_game/<%= @the_game.id %>"  method="post" >
+      <div>
+        <label for="home_team_id_box">
+          Home team
+        </label>
+
+        <input type="text" id="home_team_id_box" name="query_home_team_id" value="<%= @the_game.home_team_id %>">
+      </div>
+
+      <div>
+        <label for="away_team_id_box">
+          Away team
+        </label>
+
+        <input type="text" id="away_team_id_box" name="query_away_team_id" value="<%= @the_game.away_team_id %>">
+      </div>
+
+      <div>
+        <label for="week_box">
+          Week
+        </label>
+
+        <input type="text" id="week_box" name="query_week" value="<%= @the_game.week %>">
+      </div>
+
+      <button>
+        Update game
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

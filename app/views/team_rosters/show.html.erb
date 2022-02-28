@@ -1,0 +1,131 @@
+<div>
+  <div>
+    <h1>
+      Team roster #<%= @the_team_roster.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/team_rosters">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_team_roster/<%= @the_team_roster.id %>">
+          Delete team roster
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Fantasy team
+      </dt>
+      <dd>
+        <%= @the_team_roster.fantasy_team_id %>
+      </dd>
+
+      <dt>
+        Player
+      </dt>
+      <dd>
+        <%= @the_team_roster.player_id %>
+      </dd>
+
+      <dt>
+        Add date
+      </dt>
+      <dd>
+        <%= @the_team_roster.add_date %>
+      </dd>
+
+      <dt>
+        Status
+      </dt>
+      <dd>
+        <%= @the_team_roster.status %>
+      </dd>
+
+      <dt>
+        Drop date
+      </dt>
+      <dd>
+        <%= @the_team_roster.drop_date %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_team_roster.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_team_roster.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit team roster
+    </h2>
+
+    <form action="/modify_team_roster/<%= @the_team_roster.id %>"  method="post" >
+      <div>
+        <label for="fantasy_team_id_box">
+          Fantasy team
+        </label>
+
+        <input type="text" id="fantasy_team_id_box" name="query_fantasy_team_id" value="<%= @the_team_roster.fantasy_team_id %>">
+      </div>
+
+      <div>
+        <label for="player_id_box">
+          Player
+        </label>
+
+        <input type="text" id="player_id_box" name="query_player_id" value="<%= @the_team_roster.player_id %>">
+      </div>
+
+      <div>
+        <label for="add_date_box">
+          Add date
+        </label>
+
+        <input type="text" id="add_date_box" name="query_add_date" value="<%= @the_team_roster.add_date %>">
+      </div>
+
+      <div>
+        <label for="status_box">
+          Status
+        </label>
+
+        <input type="text" id="status_box" name="query_status" value="<%= @the_team_roster.status %>">
+      </div>
+
+      <div>
+        <label for="drop_date_box">
+          Drop date
+        </label>
+
+        <input type="text" id="drop_date_box" name="query_drop_date" value="<%= @the_team_roster.drop_date %>">
+      </div>
+
+      <button>
+        Update team roster
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

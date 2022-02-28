@@ -1,0 +1,101 @@
+<div>
+  <div>
+    <h1>
+      League schedule #<%= @the_league_schedule.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/league_schedules">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_league_schedule/<%= @the_league_schedule.id %>">
+          Delete league schedule
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Home fantasy team
+      </dt>
+      <dd>
+        <%= @the_league_schedule.home_fantasy_team_id %>
+      </dd>
+
+      <dt>
+        Away fantasy team
+      </dt>
+      <dd>
+        <%= @the_league_schedule.away_fantasy_team_id %>
+      </dd>
+
+      <dt>
+        Week
+      </dt>
+      <dd>
+        <%= @the_league_schedule.week %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_league_schedule.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_league_schedule.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit league schedule
+    </h2>
+
+    <form action="/modify_league_schedule/<%= @the_league_schedule.id %>"  method="post" >
+      <div>
+        <label for="home_fantasy_team_id_box">
+          Home fantasy team
+        </label>
+
+        <input type="text" id="home_fantasy_team_id_box" name="query_home_fantasy_team_id" value="<%= @the_league_schedule.home_fantasy_team_id %>">
+      </div>
+
+      <div>
+        <label for="away_fantasy_team_id_box">
+          Away fantasy team
+        </label>
+
+        <input type="text" id="away_fantasy_team_id_box" name="query_away_fantasy_team_id" value="<%= @the_league_schedule.away_fantasy_team_id %>">
+      </div>
+
+      <div>
+        <label for="week_box">
+          Week
+        </label>
+
+        <input type="text" id="week_box" name="query_week" value="<%= @the_league_schedule.week %>">
+      </div>
+
+      <button>
+        Update league schedule
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

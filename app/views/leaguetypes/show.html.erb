@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Leaguetype #<%= @the_leaguetype.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/leaguetypes">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_leaguetype/<%= @the_leaguetype.id %>">
+          Delete leaguetype
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        League type
+      </dt>
+      <dd>
+        <%= @the_leaguetype.league_type %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_leaguetype.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_leaguetype.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit leaguetype
+    </h2>
+
+    <form action="/modify_leaguetype/<%= @the_leaguetype.id %>"  method="post" >
+      <div>
+        <label for="league_type_box">
+          League type
+        </label>
+
+        <input type="text" id="league_type_box" name="query_league_type" value="<%= @the_leaguetype.league_type %>">
+      </div>
+
+      <button>
+        Update leaguetype
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>

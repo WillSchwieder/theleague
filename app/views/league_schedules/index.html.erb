@@ -1,0 +1,118 @@
+<div>
+  <div>
+    <h1>
+      List of all league schedules
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new league schedule
+    </h2>
+
+    <form action="/insert_league_schedule" method="post">
+      <div>
+        <label for="home_fantasy_team_id_box">
+          Home fantasy team
+        </label>
+
+        <input type="text" id="home_fantasy_team_id_box" name="query_home_fantasy_team_id">
+      </div>
+
+      <div>
+        <label for="away_fantasy_team_id_box">
+          Away fantasy team
+        </label>
+
+        <input type="text" id="away_fantasy_team_id_box" name="query_away_fantasy_team_id">
+      </div>
+
+      <div>
+        <label for="week_box">
+          Week
+        </label>
+
+        <input type="text" id="week_box" name="query_week">
+      </div>
+
+      <button>
+        Create league schedule
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Home fantasy team
+        </th>
+
+        <th>
+          Away fantasy team
+        </th>
+
+        <th>
+          Week
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_league_schedules.each do |a_league_schedule| %>
+      <tr>
+        <td>
+          <%= a_league_schedule.id %>
+        </td>
+
+        <td>
+          <%= a_league_schedule.home_fantasy_team_id %>
+        </td>
+
+        <td>
+          <%= a_league_schedule.away_fantasy_team_id %>
+        </td>
+
+        <td>
+          <%= a_league_schedule.week %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_league_schedule.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_league_schedule.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/league_schedules/<%= a_league_schedule.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

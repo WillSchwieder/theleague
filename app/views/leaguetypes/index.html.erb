@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all leaguetypes
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new leaguetype
+    </h2>
+
+    <form action="/insert_leaguetype" method="post">
+      <div>
+        <label for="league_type_box">
+          League type
+        </label>
+
+        <input type="text" id="league_type_box" name="query_league_type">
+      </div>
+
+      <button>
+        Create leaguetype
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          League type
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_leaguetypes.each do |a_leaguetype| %>
+      <tr>
+        <td>
+          <%= a_leaguetype.id %>
+        </td>
+
+        <td>
+          <%= a_leaguetype.league_type %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_leaguetype.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_leaguetype.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/leaguetypes/<%= a_leaguetype.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

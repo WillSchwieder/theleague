@@ -1,0 +1,134 @@
+<div>
+  <div>
+    <h1>
+      List of all players
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new player
+    </h2>
+
+    <form action="/insert_player" method="post">
+      <div>
+        <label for="firstname_box">
+          Firstname
+        </label>
+
+        <input type="text" id="firstname_box" name="query_firstname">
+      </div>
+
+      <div>
+        <label for="lastname_box">
+          Lastname
+        </label>
+
+        <input type="text" id="lastname_box" name="query_lastname">
+      </div>
+
+      <div>
+        <label for="positionid_box">
+          Positionid
+        </label>
+
+        <input type="text" id="positionid_box" name="query_positionid">
+      </div>
+
+      <div>
+        <label for="playerhash_box">
+          Playerhash
+        </label>
+
+        <input type="text" id="playerhash_box" name="query_playerhash">
+      </div>
+
+      <button>
+        Create player
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Firstname
+        </th>
+
+        <th>
+          Lastname
+        </th>
+
+        <th>
+          Positionid
+        </th>
+
+        <th>
+          Playerhash
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_players.each do |a_player| %>
+      <tr>
+        <td>
+          <%= a_player.id %>
+        </td>
+
+        <td>
+          <%= a_player.firstname %>
+        </td>
+
+        <td>
+          <%= a_player.lastname %>
+        </td>
+
+        <td>
+          <%= a_player.positionid %>
+        </td>
+
+        <td>
+          <%= a_player.playerhash %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_player.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_player.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/players/<%= a_player.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

@@ -1,0 +1,358 @@
+<div>
+  <div>
+    <h1>
+      List of all fantasypoints
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new fantasypoint
+    </h2>
+
+    <form action="/insert_fantasypoint" method="post">
+      <div>
+        <label for="passing_yrd_box">
+          Passing yrd
+        </label>
+
+        <input type="text" id="passing_yrd_box" name="query_passing_yrd">
+      </div>
+
+      <div>
+        <label for="passing_td_box">
+          Passing td
+        </label>
+
+        <input type="text" id="passing_td_box" name="query_passing_td">
+      </div>
+
+      <div>
+        <label for="int_box">
+          Int
+        </label>
+
+        <input type="text" id="int_box" name="query_int">
+      </div>
+
+      <div>
+        <label for="passing_att_box">
+          Passing att
+        </label>
+
+        <input type="text" id="passing_att_box" name="query_passing_att">
+      </div>
+
+      <div>
+        <label for="comp_box">
+          Comp
+        </label>
+
+        <input type="text" id="comp_box" name="query_comp">
+      </div>
+
+      <div>
+        <label for="rushing_att_box">
+          Rushing att
+        </label>
+
+        <input type="text" id="rushing_att_box" name="query_rushing_att">
+      </div>
+
+      <div>
+        <label for="rushing_yrd_box">
+          Rushing yrd
+        </label>
+
+        <input type="text" id="rushing_yrd_box" name="query_rushing_yrd">
+      </div>
+
+      <div>
+        <label for="rushing_td_box">
+          Rushing td
+        </label>
+
+        <input type="text" id="rushing_td_box" name="query_rushing_td">
+      </div>
+
+      <div>
+        <label for="rec_box">
+          Rec
+        </label>
+
+        <input type="text" id="rec_box" name="query_rec">
+      </div>
+
+      <div>
+        <label for="targets_box">
+          Targets
+        </label>
+
+        <input type="text" id="targets_box" name="query_targets">
+      </div>
+
+      <div>
+        <label for="receiving_yrds_box">
+          Receiving yrds
+        </label>
+
+        <input type="text" id="receiving_yrds_box" name="query_receiving_yrds">
+      </div>
+
+      <div>
+        <label for="fumble_box">
+          Fumble
+        </label>
+
+        <input type="text" id="fumble_box" name="query_fumble">
+      </div>
+
+      <div>
+        <label for="ppr_fantasy_points_box">
+          Ppr fantasy points
+        </label>
+
+        <input type="text" id="ppr_fantasy_points_box" name="query_ppr_fantasy_points">
+      </div>
+
+      <div>
+        <label for="standard_fantasy_pts_box">
+          Standard fantasy pts
+        </label>
+
+        <input type="text" id="standard_fantasy_pts_box" name="query_standard_fantasy_pts">
+      </div>
+
+      <div>
+        <label for="half_ppr_fantasy_pts_box">
+          Half ppr fantasy pts
+        </label>
+
+        <input type="text" id="half_ppr_fantasy_pts_box" name="query_half_ppr_fantasy_pts">
+      </div>
+
+      <div>
+        <label for="player_id_box">
+          Player
+        </label>
+
+        <input type="text" id="player_id_box" name="query_player_id">
+      </div>
+
+      <div>
+        <label for="team_id_box">
+          Team
+        </label>
+
+        <input type="text" id="team_id_box" name="query_team_id">
+      </div>
+
+      <div>
+        <label for="game_id_box">
+          Game
+        </label>
+
+        <input type="text" id="game_id_box" name="query_game_id">
+      </div>
+
+      <button>
+        Create fantasypoint
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Passing yrd
+        </th>
+
+        <th>
+          Passing td
+        </th>
+
+        <th>
+          Int
+        </th>
+
+        <th>
+          Passing att
+        </th>
+
+        <th>
+          Comp
+        </th>
+
+        <th>
+          Rushing att
+        </th>
+
+        <th>
+          Rushing yrd
+        </th>
+
+        <th>
+          Rushing td
+        </th>
+
+        <th>
+          Rec
+        </th>
+
+        <th>
+          Targets
+        </th>
+
+        <th>
+          Receiving yrds
+        </th>
+
+        <th>
+          Fumble
+        </th>
+
+        <th>
+          Ppr fantasy points
+        </th>
+
+        <th>
+          Standard fantasy pts
+        </th>
+
+        <th>
+          Half ppr fantasy pts
+        </th>
+
+        <th>
+          Player
+        </th>
+
+        <th>
+          Team
+        </th>
+
+        <th>
+          Game
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_fantasypoints.each do |a_fantasypoint| %>
+      <tr>
+        <td>
+          <%= a_fantasypoint.id %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.passing_yrd %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.passing_td %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.int %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.passing_att %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.comp %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.rushing_att %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.rushing_yrd %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.rushing_td %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.rec %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.targets %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.receiving_yrds %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.fumble %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.ppr_fantasy_points %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.standard_fantasy_pts %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.half_ppr_fantasy_pts %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.player_id %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.team_id %>
+        </td>
+
+        <td>
+          <%= a_fantasypoint.game_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_fantasypoint.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_fantasypoint.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/fantasypoints/<%= a_fantasypoint.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

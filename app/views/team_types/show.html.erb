@@ -1,0 +1,71 @@
+<div>
+  <div>
+    <h1>
+      Team type #<%= @the_team_type.id %> details
+    </h1>
+
+    <div>
+      <div>
+        <a href="/team_types">
+          Go back
+        </a>
+      </div>
+
+      <div>
+        <a href="/delete_team_type/<%= @the_team_type.id %>">
+          Delete team type
+        </a>
+      </div>
+    </div>
+
+    <dl>
+      <dt>
+        Specialpower
+      </dt>
+      <dd>
+        <%= @the_team_type.specialpower %>
+      </dd>
+
+      <dt>
+        Created at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_team_type.created_at) %> ago
+      </dd>
+
+      <dt>
+        Updated at
+      </dt>
+      <dd>
+        <%= time_ago_in_words(@the_team_type.updated_at) %> ago
+      </dd>
+    </dl>
+  </div>
+</div>
+
+<hr>
+
+
+<div>
+  <div>
+    <h2>
+      Edit team type
+    </h2>
+
+    <form action="/modify_team_type/<%= @the_team_type.id %>"  method="post" >
+      <div>
+        <label for="specialpower_box">
+          Specialpower
+        </label>
+
+        <input type="text" id="specialpower_box" name="query_specialpower" value="<%= @the_team_type.specialpower %>">
+      </div>
+
+      <button>
+        Update team type
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
