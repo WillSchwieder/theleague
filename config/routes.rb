@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   get("/", { :controller => "application", :action => "homepage" })
+  get("/sign_up", { :controller => "users", :action => "sign_up" })
+  get("/sign_out", { :controller => "users", :action => "sign_out" })
+  get("/sign_in", { :controller => "users", :action => "sign_in" })
 
   # Routes for the League schedule resource:
 
