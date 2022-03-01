@@ -1,15 +1,15 @@
 class UsersController < ApplicationController
-  def sign_up
+  def user_sign_up
     render({ :template => "user_templates/sign_up.html.erb" })
   end
 
-  def sign_out
+  def destroy_cookies
     reset_session
 
     redirect_to("/", { :notice => "See ya later!" })
   end
 
-  def sign_in
+  def sign_in_form
     render({ :template => "user_templates/sign_in.html.erb" })
   end
 
@@ -30,9 +30,8 @@ class UsersController < ApplicationController
         session.store(:user_id, user.id)
         redirect_to("/", { :notice => "Welcome Back " + user.username + "!" })
       else
-        redirect_to("/user_sign_in", {:alert => "Incorrect password"})
+        redirect_to("/user_sign_in", { :alert => "Incorrect password" })
       end
     end
   end
-
 end
