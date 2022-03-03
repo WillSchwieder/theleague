@@ -37,7 +37,7 @@
           <% end %>
           <% if session.fetch(:user_id) != nil %>
           <li class="nav-item">
-            <a class="nav-link" href="/user_home">User Home</a>
+            <a class="nav-link" href="/u/<%= session.fetch(:user_id) %>">User Home</a>
           <li class="nav-item">
             <a class="nav-link" href="/league_home">League Home</a>
           <li class="nav-item">

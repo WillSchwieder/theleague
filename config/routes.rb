@@ -219,5 +219,10 @@ Rails.application.routes.draw do
   get("/delete_player/:path_id", { :controller => "players", :action => "destroy" })
 
   #------------------------------
+  
+  # Site Navigation:
+
+  # User Profile
+  get("/u/:user_id", { :controller => "users", :action => "user_profile" })
 
 end

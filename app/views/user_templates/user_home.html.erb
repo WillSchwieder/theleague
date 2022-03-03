@@ -1,0 +1,13 @@
+<body>
+  <% ud = session.fetch(:user_id) %>
+  <div class="jumbotron">
+    <h1 class="display-3">Welcome <%= User.where( {:id => ud }).first.username %> ! </h1>
+    <p class="lead">See below for your current leagues and teams</p>
+    <hr class="my-2">
+    <p>Join as many as you like and invite your friends to see who reigns as fantasy champion </p>
+    <p class="lead">
+      
+    </p>
+  </div>
+</body>
+</html>
