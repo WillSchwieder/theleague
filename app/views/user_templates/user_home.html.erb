@@ -6,8 +6,79 @@
     <hr class="my-2">
     <p>Join as many as you like and invite your friends to see who reigns as fantasy champion </p>
     <p class="lead">
-      
+      <a class="btn btn-primary btn-lg" href="/l" role="button">Join a League!</a>
     </p>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Year
+        </th>
+
+        <th>
+          League type
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+      <% ud = session.fetch(:user_id) %>
+      <% League.where(:user_id == ud).each do |a_league| %>
+      <tr>
+        <td>
+          <%= a_league.id %>
+        </td>
+
+        <td>
+          <%= a_league.name %>
+        </td>
+
+        <td>
+          <%= a_league.year %>
+        </td>
+
+        <td>
+          <%= a_league.league_type_id %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_league.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_league.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/leagues/<%= a_league.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
   </div>
+</div>
+
+<hr>
 </body>
 </html>

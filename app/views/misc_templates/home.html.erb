@@ -8,10 +8,15 @@
   <hr class="my-2">
   <p>It uses utility classes for typography and
      spacing to space content out within the larger container.</p>
-  <p class="lead">
-    <a class="btn btn-primary btn-lg" href="/user_sign_in" role="button">Log In</a>
-  </p>
-</div>
+  <% if session.fetch(:user_id) == nil %>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/user_sign_in" role="button">Log In</a>
+    </p>
+  <% else %>
+    <p class="lead">
+      <a class="btn btn-primary btn-lg" href="/u/<%= session.fetch(:user_id) %>" role="button">Go to Your Profile</a>
+    </p>
+  <% end %>
 
 </body>
 

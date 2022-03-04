@@ -225,4 +225,5 @@ Rails.application.routes.draw do
   # User Profile
   get("/u/:user_id", { :controller => "users", :action => "user_profile" })
 
+  get("/l", { :controller => "leagues", :action => "index" })
 end

@@ -55,4 +55,8 @@ class LeaguesController < ApplicationController
 
     redirect_to("/leagues", { :notice => "League deleted successfully."} )
   end
+
+  def leagues_view
+    render({ :template => "leagues/index.html.erb" })
+  end
 end
