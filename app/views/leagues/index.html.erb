@@ -1,11 +1,8 @@
-<div>
-  <div>
-    <h1>
-      List of all leagues
-    </h1>
-  </div>
+<% ud = session.fetch(:user_id) %>
+  <div class="jumbotron">
+    <h1 class="display-3">League Home </h1>
+    
 </div>
-
 <hr>
 
 <div>
@@ -28,7 +25,7 @@
           Year
         </label>
 
-        <input type="text" id="year_box" name="query_year">
+        <input type="hidden" id="year_box" name="query_year">
       </div>
 
       <div>
