@@ -1,7 +1,7 @@
 <div>
   <div>
     <h1>
-      League #<%= @the_league.id %> details
+      League <%= @the_league.name %> details
     </h1>
 
     <div>
@@ -27,7 +27,7 @@
       </dd>
 
       <dt>
-        Year
+        Fantasy Year
       </dt>
       <dd>
         <%= @the_league.year %>
@@ -37,7 +37,8 @@
         League type
       </dt>
       <dd>
-        <%= @the_league.league_type_id %>
+        <% league_type = Leaguetype.where(:id => @the_league.league_type_id).first %>
+        <%= league_type.league_type %>
       </dd>
 
       <dt>

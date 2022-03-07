@@ -20,58 +20,36 @@
         </th>
 
         <th>
-          Name
+          Team Name
         </th>
 
         <th>
-          Year
+          League Name
         </th>
 
         <th>
-          League type
+         
         </th>
 
-        <th>
-          Created at
-        </th>
-
-        <th>
-          Updated at
-        </th>
-
-        <th>
-        </th>
+        
       </tr>
       <% ud = session.fetch(:user_id) %>
-      <% League.where(:user_id == ud).each do |a_league| %>
+      <% FantasyTeam.where(:user_id => ud).each do |a_fantasy_team| %>
       <tr>
         <td>
-          <%= a_league.id %>
+          <%= a_fantasy_team.id %>
         </td>
 
         <td>
-          <%= a_league.name %>
+          <%= a_fantasy_team.name %>
         </td>
 
         <td>
-          <%= a_league.year %>
-        </td>
-
-        <td>
-          <% league_type_id = a_league.league_type_id %>
-          <% a = Leaguetype.where( :id => league_type_id ).first %>
-          <%= a.league_type %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_league.created_at) %> ago
+          <% league_obj = League.where(:id => a_fantasy_team.league_id).first %>
+          <%= league_obj.name %>
         </td>
         <td>
-          <%= time_ago_in_words(a_league.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/leagues/<%= a_league.id %>">
+          <a href="/leagues/<%= league_obj.id %>">
             Show Details
           </a>
         </td>

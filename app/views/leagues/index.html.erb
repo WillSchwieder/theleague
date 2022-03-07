@@ -1,48 +1,42 @@
 <% ud = session.fetch(:user_id) %>
-  <div class="jumbotron">
-    <h1 class="display-3">League Home </h1>
-    
+<div class="jumbotron">
+  <h1 class="display-3">League Home </h1>
 </div>
 <hr>
-
 <div>
   <div>
     <h2>
       Add a new league
     </h2>
-
     <form action="/insert_league" method="post">
       <div>
         <label for="name_box">
           Name
         </label>
-
         <input type="text" id="name_box" name="query_name">
-      </div>
-
-      <div>
         <label for="year_box">
-          Year
         </label>
-
-        <input type="hidden" id="year_box" name="query_year">
+        <input type="hidden" id="year_box" name = "query_year" value = <%= DateTime.now.year %>>
       </div>
-
       <div>
-        <label for="league_type_id_box">
-          League type
+        <div>
+        <label for="league_type_id">
+          Team Type
         </label>
-
-        <input type="text" id="league_type_id_box" name="query_league_type_id">
+        <select name="query_league_type_id" id="league_type_id">
+          <% Leaguetype.order(:id).each do |a_league_type| %>
+            <option value="<%= a_league_type.id %>">
+              <%= a_league_type.league_type %>
+            </option>
+          <% end %>
+        </select>
       </div>
-
       <button>
         Create league
       </button>
     </form>
   </div>
 </div>
-
 <hr>
 <div>
   <div>
@@ -51,65 +45,52 @@
         <th>
           ID
         </th>
-
         <th>
           Name
         </th>
-
         <th>
           Year
         </th>
-
         <th>
           League type
         </th>
-
         <th>
-          Created at
+          League Owner
         </th>
-
-        <th>
-          Updated at
-        </th>
-
         <th>
         </th>
       </tr>
-
       <% @list_of_leagues.each do |a_league| %>
-      <tr>
-        <td>
-          <%= a_league.id %>
-        </td>
-
-        <td>
-          <%= a_league.name %>
-        </td>
-
-        <td>
-          <%= a_league.year %>
-        </td>
-
-        <td>
-          <%= a_league.league_type_id %>
-        </td>
-
-        <td>
-          <%= time_ago_in_words(a_league.created_at) %> ago
-        </td>
-        <td>
-          <%= time_ago_in_words(a_league.updated_at) %> ago
-        </td>
-
-        <td>
-          <a href="/leagues/<%= a_league.id %>">
-            Show details
-          </a>
-        </td>
-      </tr>
+        <tr>
+          <td>
+            <%= a_league.id %>
+          </td>
+          <td>
+            <%= a_league.name %>
+          </td>
+          <td>
+            <%= a_league.year %>
+          </td>
+          <td>
+            <% league_type = Leaguetype.where(:id => a_league.league_type_id).first %>
+            <%= league_type.league_type %>
+          </td>
+          <td>
+            <% league_owner = User.where(:id => a_league.user_id).first %>
+            <% if league_owner != nil %>
+              <%= league_owner.username%>
+            <% else %>
+              -
+            <% end %>
+          </td>
+          <td>
+            <a href="/leagues/<%= a_league.id %>">
+              Show details
+            </a>
+          </td>
+        </tr>
       <% end %>
     </table>
   </div>
 </div>
-
 <hr>

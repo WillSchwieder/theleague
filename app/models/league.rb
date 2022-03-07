@@ -8,6 +8,7 @@
 #  created_at     :datetime         not null
 #  updated_at     :datetime         not null
 #  league_type_id :integer
+#  user_id        :integer
 #
 class League < ApplicationRecord
 

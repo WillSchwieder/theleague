@@ -29,6 +29,12 @@
             </option>
           <% end %>
         </select>
+        <label for="league_id">
+        </label>
+          <input type="hidden" id="league_id" name="query_league_id" value = <%= @matching_league.id %>>
+        <label for="user_id">
+        </label>
+          <input type="hidden" id="user_id" name="query_user_id" value = <%= session.fetch(:user_id) %>>
       </div>
       <button>
         Create fantasy team

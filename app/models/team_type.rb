@@ -4,6 +4,7 @@
 #
 #  id           :integer          not null, primary key
 #  description  :text
+#  image        :string
 #  specialpower :string
 #  created_at   :datetime         not null
 #  updated_at   :datetime         not null

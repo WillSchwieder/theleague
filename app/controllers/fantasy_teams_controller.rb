@@ -35,12 +35,13 @@ class FantasyTeamsController < ApplicationController
     the_fantasy_team.name = params.fetch("query_name")
     the_fantasy_team.team_type_id = params.fetch("query_team_type_id")
     the_fantasy_team.league_id = league_id
+    the_fantasy_team.user_id = user_id
 
     if the_fantasy_team.valid?
       the_fantasy_team.save
       redirect_to("/fantasy_teams", { :notice => "Fantasy team created successfully." })
     else
-      redirect_to("/fantasy_teams", { :notice => "Fantasy team failed to create successfully." })
+      redirect_to("/fantasy_teams", { :notice => "Fantasy team failed to create successfully." + the_fantasy_team.user_id.to_s})
     end
   end
 
