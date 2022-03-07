@@ -10,4 +10,10 @@
 #  league_type_id :integer
 #
 class League < ApplicationRecord
+
+  has_many(:fantasy_teams, { :class_name => "FantasyTeam", :foreign_key => "league_id", :dependent => :destroy })
+
+  belongs_to(:league_type, { :required => true, :class_name => "Leaguetype", :foreign_key => "league_type_id" })
+
+  belongs_to(:user, { :required => true, :class_name => "User", :foreign_key => "user_id" })
 end

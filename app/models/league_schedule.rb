@@ -10,4 +10,5 @@
 #  home_fantasy_team_id :integer
 #
 class LeagueSchedule < ApplicationRecord
+  belongs_to(:home_fantasy_team, { :required => true, :class_name => "FantasyTeam", :foreign_key => "home_fantasy_team_id" })
 end

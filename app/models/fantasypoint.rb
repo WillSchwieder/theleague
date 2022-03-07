@@ -25,4 +25,8 @@
 #  team_id              :integer
 #
 class Fantasypoint < ApplicationRecord
+  belongs_to(:player, { :required => true, :class_name => "Player", :foreign_key => "player_id" })
+  belongs_to(:team, { :required => true, :class_name => "Team", :foreign_key => "team_id" })
+
+  belongs_to(:game, { :required => true, :class_name => "Game", :foreign_key => "game_id" })
 end

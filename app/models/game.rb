@@ -10,4 +10,7 @@
 #  home_team_id :integer
 #
 class Game < ApplicationRecord
+  belongs_to(:home_team, { :required => true, :class_name => "Team", :foreign_key => "home_team_id" })
+
+  has_many(:fantasypoints, { :class_name => "Fantasypoint", :foreign_key => "game_id", :dependent => :destroy })
 end
