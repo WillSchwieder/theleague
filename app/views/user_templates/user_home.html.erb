@@ -59,9 +59,8 @@
 
         <td>
           <% league_type_id = a_league.league_type_id %>
-          <!--  <% a = LeagueType.where( id => :league_type_id ) %> -->
-          <% a = LeagueType.%>
-          <%= a %>
+          <% a = Leaguetype.where( :id => league_type_id ).first %>
+          <%= a.league_type %>
         </td>
 
         <td>
@@ -72,8 +71,8 @@
         </td>
 
         <td>
-          <a href="/fantasy_teams/<%= a_league.id %>">
-            Join this League!
+          <a href="/leagues/<%= a_league.id %>">
+            Show Details
           </a>
         </td>
       </tr>
