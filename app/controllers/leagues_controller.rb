@@ -1,4 +1,15 @@
 class LeaguesController < ApplicationController
+  def create_from_league_details
+    # {"movie_id"=>"55", "current_user_id"=>"82"}
+
+    b = FantasyTeam.new
+    b.league_id = params.fetch("query_league_id")
+    b.user_id = params.fetch("query_user_id")
+    b.save
+
+    redirect_to("/fantasy_teams", { :notice => "Fantasy  #{b.name}" })
+  end
+  
   def index
     matching_leagues = League.all
 

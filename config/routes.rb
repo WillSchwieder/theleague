@@ -226,4 +226,7 @@ Rails.application.routes.draw do
   get("/u/:user_id", { :controller => "users", :action => "user_profile" })
 
   get("/l", { :controller => "leagues", :action => "index" })
+
+  # Join a league
+  get("/join_fantasy_team", { :controller => "fantasy_teams", :action => "join_fantasy_team" })
 end

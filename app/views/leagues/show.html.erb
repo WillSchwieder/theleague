@@ -57,7 +57,30 @@
   </div>
 </div>
 
+
+   <hr>
+      <% u_id = session.fetch(:user_id) %>
+
+      <% matching_leagues = FantasyTeam.where({ :user_id => u_id, :league_id => @the_league.id }) %>
+
+      <% the_league = matching_leagues.at(0) %>
+
+      <% if the_league == nil %>
+        <form action="/join_fantasy_team" method="get">
+          <input name="query_league_id" type="hidden" value="<%= @the_league.id %>">
+          
+          <input name="query_user_id" type="hidden" value="<%= session.fetch(:user_id) %>">
+
+          <button>Join this League!</button>
+        </form>  
+      <% else %>
+        <a href="/delete_league/<%= the_league.id %>">
+          Leave this League
+        </a>
+      <% end %>
+
 <hr>
+
 
 
 <div>

@@ -7,6 +7,16 @@ class FantasyTeamsController < ApplicationController
     render({ :template => "fantasy_teams/index.html.erb" })
   end
 
+  def join_fantasy_team
+    league_id = params.fetch("query_league_id")
+
+    @matching_league = League.where({ :id => league_id }).at(0)
+
+    
+
+    render({ :template => "fantasy_teams/join_fantasy_team.html.erb" })
+  end
+
   def show
     the_id = params.fetch("path_id")
 
@@ -18,10 +28,13 @@ class FantasyTeamsController < ApplicationController
   end
 
   def create
+    league_id = params.fetch("query_league_id")
+    user_id = params.fetch("query_user_id")
+
     the_fantasy_team = FantasyTeam.new
     the_fantasy_team.name = params.fetch("query_name")
     the_fantasy_team.team_type_id = params.fetch("query_team_type_id")
-    the_fantasy_team.league_id = params.fetch("query_league_id")
+    the_fantasy_team.league_id = league_id
 
     if the_fantasy_team.valid?
       the_fantasy_team.save
