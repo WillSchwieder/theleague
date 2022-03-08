@@ -4,7 +4,7 @@
 <% team_types = TeamType.all %>
 <div class="card-group" >
   <div class="card">
-    <h2 class="text-center">The League of Extraordinary Gentlemen is a special kind of fantasy football experience. Each league member is a unique character with special abilities. These abilities uniquely affect the games each week with the abilities specified below:
+    <h2 class="text-center">The League of Extraordinary Gentlemen is a special kind of fantasy football experience. Each league member is a character with special abilities. These abilities uniquely affect the games each week with the abilities specified below:
     </h2>
   </div>
 </div>
@@ -18,8 +18,8 @@
 <div class="card-group">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">The Aggressor</h4>
-      <p class="card-text">Neither the Aggressor nor his opponent count points scored by their Defenses or Kickers.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 1).first.specialpower%> </h4>
+      <p class="card-text"><%= team_types.where(:id => 1).first.description %></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 1).first.image %> alt="The Aggressor" width="70%" height="auto">
       </div>
@@ -27,8 +27,8 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">The Aquaman</h4>
-      <p class="card-text">Earns 1.722x points when playing a coastal player (i.e., "Y" in the "Coastal?" column), but their opponent earns 2x points when playing a non-coastal player (i.e., "-" in the "Coastal?" column).</p>
+      <h4 class="card-title"><%= team_types.where(:id => 2).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 2).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 2).first.image %> alt="The Aquaman" width="50%" height="auto">
       </div>
@@ -36,8 +36,8 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">The Equalizer</h4>
-      <p class="card-text">Plays against the weekly average score of all teams, rather than their opponent's score.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 3).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 3).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 3).first.image %> alt="The Equalizer" width="40%" height="auto">
       </div>
@@ -47,18 +47,17 @@
 <div class="card-group">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">The Gentlemen Thief</h4>
-      <p class="card-text">Each week, the Gentleman Thief and his opponent make a certain number of players "available" to be stolen (one player in Week 1, two players in Week 2, etc.). The winning team can force a trade of one of their exposed players for one of their opponent's.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 4).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 4).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 4).first.image %> alt="The Gentleman Thief" width="50%" height="auto">
       </div>
     </div>
   </div>
-  
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">The Gunslinger</h4>
-      <p class="card-text">Earns 2x points for WRs, 0.5x points for RBs.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 5).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 5).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 5).first.image %> alt="The Gunslinger" width="80%" height="auto">
       </div>
@@ -66,8 +65,8 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">The Immortal</h4>
-      <p class="card-text">Earns 2x points when playing rookies. Players in their second, third, and fourth season earn 1x points. Players in their fifth, sixth, seventh, eighth, or ninth season earn 0.5x points. All other players earn 0x points.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 6).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 6).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 6).first.image %> alt="The Immortal" width="50%" height="auto">
       </div>
@@ -77,8 +76,8 @@
 <div class="card-group">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Invisible Man</h4>
-      <p class="card-text">Can temporarily swap one of their players for an opponent's player. Swapped players must be from same (non-QB) position, not injured, starting, and must have scored 50% of the stolen player's points last week. If stolen player outscores swapped player, Invisible Man loses.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 7).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 7).first.specialpower%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 7).first.image %> alt="The Invisible Man" width="50%" height="auto">
       </div>
@@ -86,8 +85,8 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Juggernaut</h4>
-      <p class="card-text">Only drafts one player. Weekly Score = (player's score) x (10 - (0.5 x number of losses)).</p>
+      <h4 class="card-title"><%= team_types.where(:id => 8).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 8).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 8).first.image %> alt="The Juggernaut" width="50%" height="auto">
       </div>
@@ -95,8 +94,8 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Scrooge</h4>
-      <p class="card-text">Earns a 10 point bonus each week that he starts players whose combined salaries are less than $55 million. Loses 10 points each week he's over the cap.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 9).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 9).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 9).first.image %> alt="The Scrooge" width="50%" height="auto">
       </div>
@@ -106,8 +105,8 @@
 <div class="card-group">
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Sorting Hat</h4>
-      <p class="card-text">Earns 1.361x points from players on the Rams, Seahawks, 49ers, Cardinals, Chiefs, Texans, Raiders, and Broncos. Opponent earns 2x points from players on the Patriots, Bills, Dolphins, Jets, Giants, Cowboyx, Eagles, and Washington Football Team. </p>
+      <h4 class="card-title"><%= team_types.where(:id => 10).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 10).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 10).first.image %> alt="The Sorting Hat" width="90%" height="auto">
       </div>
@@ -115,8 +114,8 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Time Lord</h4>
-      <p class="card-text">Has the option, on Tuesday morning, to retroactively substitute one benched player for one starting player. If they exercise that option, the moved-in player must be started the following week, and the moved-out player cannot be started the following week.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 11).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 11).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 11).first.image %> alt="The Time Lord" width="70%" height="auto">
       </div>
@@ -124,8 +123,8 @@
   </div>
   <div class="card">
     <div class="card-body">
-      <h4 class="card-title">Vampire</h4>
-      <p class="card-text">Has first priority to the waiver wire each week. If she ever scores more points than her opponent, the Vampire can force through a like-for-like (e.g., RB for RB) trade with her opponent.</p>
+      <h4 class="card-title"><%= team_types.where(:id => 12).first.specialpower%></h4>
+      <p class="card-text"><%= team_types.where(:id => 12).first.description%></p>
       <div class="d-flex justify-content-center">
         <img src= <%= team_types.where(:id => 12).first.image %> alt="The Vampire" width="50%" height="auto">
       </div>
