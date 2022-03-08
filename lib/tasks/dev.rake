@@ -1,6 +1,6 @@
 desc "Hydrate the database with some sample data to look at so that developing is easier"
 task({ :sample_data => :environment }) do
-  
+
   ## User Account Generation
   # 25.times do
   #   user = User.new
@@ -10,7 +10,7 @@ task({ :sample_data => :environment }) do
   #   user.save
   # end
 
-  ## League 
+  ## League
 
   # 25.times do
   #   league = League.new
@@ -20,7 +20,18 @@ task({ :sample_data => :environment }) do
   #   league.save
   # end
 
-  ## 
+  ## Players
+  # 200.times do
+  #   player = Player.new
+  #   player.firstname = Faker::Name.male_first_name
+  #   player.lastname = Faker::Name.last_name
+  #   player.team_id = rand(1..32)
+  #   player.playerhash = player.firstname + player.lastname + player.team_id.to_s
+  #   player.positionid = rand(1..6)
+  #   player.position_id = player.positionid
+  #   player.save
+  # end
+
+  
+
 end
-
-
