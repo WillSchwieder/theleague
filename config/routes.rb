@@ -248,4 +248,6 @@ Rails.application.routes.draw do
 
   # Join a league
   get("/join_fantasy_team", { :controller => "fantasy_teams", :action => "join_fantasy_team" })
+
+  get("/draft", { :controller => "team_rosters", :action => "draft" })
 end

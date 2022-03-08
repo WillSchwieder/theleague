@@ -1,0 +1,251 @@
+<h1> Pick your team! </h1>
+<div>
+  <h2> Current Members</h2>
+  <div>
+    <table class="table table-hover">
+      <tr>
+        <th>
+          Position
+        </th>
+        <th>
+          Player Name
+        </th>
+        <th>
+          Team Name
+        </th>
+        <th>
+          League Name
+        </th>
+        <th>
+        </th>
+      </tr>
+      <tr>
+        <td>
+          QB
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 1).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          RB 1
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 2).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          RB 2
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 2).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          WR 1 
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 3).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          WR 2
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 3).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          TE
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 4).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          FLEX
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 2).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          K
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 5).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+      <tr>
+        <td>
+          DEF
+        </td>
+        <td>
+          <div>
+            <label for="player_id">
+            </label>
+            <select name="query_player_id" id="player_id">
+              <% Player.order(:id).where(:position_id => 6).each do |a_player| %>
+                <option value="<%= a_player.id %>">
+                  <% fullname = a_player.firstname + " " + a_player.lastname %>
+                  <%= fullname %>
+                </option>
+              <% end %>
+            </select>
+          </div>
+        </td>
+        <td>
+          1
+        </td>
+        <td>
+          1
+        </td>
+      </tr>
+    </table>
+  </div>
+</div>
+<form action="/join_fantasy_team" method="get" >
+  <button type="button" class="btn btn-primary btn-lg btn-block">Save your team!</button>

@@ -1,4 +1,8 @@
 class TeamRostersController < ApplicationController
+  def draft
+    render({:template => "team_rosters/draft.html.erb"})
+  end
+
   def index
     matching_team_rosters = TeamRoster.all
 
@@ -59,4 +63,7 @@ class TeamRostersController < ApplicationController
 
     redirect_to("/team_rosters", { :notice => "Team roster deleted successfully."} )
   end
+
+  
+
 end
