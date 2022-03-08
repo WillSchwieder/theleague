@@ -32,6 +32,15 @@ task({ :sample_data => :environment }) do
   #   player.save
   # end
 
-  
+  ## Teams
+  # 30.times do
+  # team = Team.new
+  # team.name = Faker::Sports::Football.team
+  # team.mascot = Faker::Creature::Animal.name
+  # team.name_abbr = team.name[0..2]
+  # team.save
+
+  # end
+
 
 end
