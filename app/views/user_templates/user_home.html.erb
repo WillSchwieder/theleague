@@ -10,13 +10,18 @@
     </p>
 </div>
 
+
+
 <hr>
 <div>
+<h2> Your Current Teams</h2>
   <div>
-    <table>
+    <table class="table table-hover">
       <tr>
         <th>
-          ID
+        <p class="text-center">
+          Team Icon
+          </p>
         </th>
 
         <th>
@@ -34,10 +39,15 @@
         
       </tr>
       <% ud = session.fetch(:user_id) %>
+      <% team_type = TeamType.where(:user_id => ud) %>
       <% FantasyTeam.where(:user_id => ud).each do |a_fantasy_team| %>
       <tr>
+      <% league_obj = League.where(:id => a_fantasy_team.league_id).first %>
         <td>
-          <%= a_fantasy_team.id %>
+          <% team_type = TeamType.where(:id => a_fantasy_team.team_type_id).first %>
+          <p class="text-center">
+          <a href="/leagues/<%= league_obj.id %>">
+          <img src = <%= team_type.image %>  height= 50px width = auto > </a> </p> 
         </td>
 
         <td>
@@ -45,7 +55,7 @@
         </td>
 
         <td>
-          <% league_obj = League.where(:id => a_fantasy_team.league_id).first %>
+          
           <%= league_obj.name %>
         </td>
         <td>

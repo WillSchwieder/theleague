@@ -1,0 +1,86 @@
+<div>
+  <div>
+    <h1>
+      List of all positions
+    </h1>
+  </div>
+</div>
+
+<hr>
+
+<div>
+  <div>
+    <h2>
+      Add a new position
+    </h2>
+
+    <form action="/insert_position" method="post">
+      <div>
+        <label for="name_box">
+          Name
+        </label>
+
+        <input type="text" id="name_box" name="query_name">
+      </div>
+
+      <button>
+        Create position
+      </button>
+    </form>
+  </div>
+</div>
+
+<hr>
+<div>
+  <div>
+    <table>
+      <tr>
+        <th>
+          ID
+        </th>
+
+        <th>
+          Name
+        </th>
+
+        <th>
+          Created at
+        </th>
+
+        <th>
+          Updated at
+        </th>
+
+        <th>
+        </th>
+      </tr>
+
+      <% @list_of_positions.each do |a_position| %>
+      <tr>
+        <td>
+          <%= a_position.id %>
+        </td>
+
+        <td>
+          <%= a_position.name %>
+        </td>
+
+        <td>
+          <%= time_ago_in_words(a_position.created_at) %> ago
+        </td>
+        <td>
+          <%= time_ago_in_words(a_position.updated_at) %> ago
+        </td>
+
+        <td>
+          <a href="/positions/<%= a_position.id %>">
+            Show details
+          </a>
+        </td>
+      </tr>
+      <% end %>
+    </table>
+  </div>
+</div>
+
+<hr>

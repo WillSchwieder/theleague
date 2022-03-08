@@ -37,7 +37,7 @@ class FantasyTeamsController < ApplicationController
 
     if the_fantasy_team.valid?
       the_fantasy_team.save
-      redirect_to("/u/" + user_id.to_s, { :notice => "Your team " + the_fantasy_team.name + " has joined League " + League.where(:id => league_id).first.name.to_s + " as a " +
+      redirect_to("/leagues/" + league_id.to_s, { :notice => "Your team " + the_fantasy_team.name + " has joined League " + League.where(:id => league_id).first.name.to_s + " as the " +
                                                     TeamType.where(:id => the_fantasy_team.team_type_id).first.specialpower.to_s })
     else
       redirect_to("/fantasy_teams", { :notice => "Fantasy team failed to create successfully." + the_fantasy_team.user_id.to_s })

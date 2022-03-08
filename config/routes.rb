@@ -1,4 +1,23 @@
 Rails.application.routes.draw do
+  # Routes for the Position resource:
+
+  # CREATE
+  post("/insert_position", { :controller => "positions", :action => "create" })
+          
+  # READ
+  get("/positions", { :controller => "positions", :action => "index" })
+  
+  get("/positions/:path_id", { :controller => "positions", :action => "show" })
+  
+  # UPDATE
+  
+  post("/modify_position/:path_id", { :controller => "positions", :action => "update" })
+  
+  # DELETE
+  get("/delete_position/:path_id", { :controller => "positions", :action => "destroy" })
+
+  #------------------------------
+
   # Routes for the User account:
 
   # SIGN UP FORM

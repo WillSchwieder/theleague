@@ -48,8 +48,8 @@ class LeaguesController < ApplicationController
     the_league = League.where({ :id => the_id }).at(0)
 
     the_league.name = params.fetch("query_name")
-    the_league.year = params.fetch("query_year")
-    the_league.league_type_id = params.fetch("query_league_type_id")
+    the_league.image = params.fetch("query_image")
+    # the_league.league_type_id = params.fetch("query_league_type_id")
 
     if the_league.valid?
       the_league.save

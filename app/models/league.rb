@@ -3,6 +3,7 @@
 # Table name: leagues
 #
 #  id             :integer          not null, primary key
+#  image          :string
 #  name           :string
 #  year           :string
 #  created_at     :datetime         not null

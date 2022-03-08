@@ -1,0 +1,54 @@
+class PositionsController < ApplicationController
+  def index
+    matching_positions = Position.all
+
+    @list_of_positions = matching_positions.order({ :created_at => :desc })
+
+    render({ :template => "positions/index.html.erb" })
+  end
+
+  def show
+    the_id = params.fetch("path_id")
+
+    matching_positions = Position.where({ :id => the_id })
+
+    @the_position = matching_positions.at(0)
+
+    render({ :template => "positions/show.html.erb" })
+  end
+
+  def create
+    the_position = Position.new
+    the_position.name = params.fetch("query_name")
+
+    if the_position.valid?
+      the_position.save
+      redirect_to("/positions", { :notice => "Position created successfully." })
+    else
+      redirect_to("/positions", { :notice => "Position failed to create successfully." })
+    end
+  end
+
+  def update
+    the_id = params.fetch("path_id")
+    the_position = Position.where({ :id => the_id }).at(0)
+
+    the_position.name = params.fetch("query_name")
+
+    if the_position.valid?
+      the_position.save
+      redirect_to("/positions/#{the_position.id}", { :notice => "Position updated successfully."} )
+    else
+      redirect_to("/positions/#{the_position.id}", { :alert => "Position failed to update successfully." })
+    end
+  end
+
+  def destroy
+    the_id = params.fetch("path_id")
+    the_position = Position.where({ :id => the_id }).at(0)
+
+    the_position.destroy
+
+    redirect_to("/positions", { :notice => "Position deleted successfully."} )
+  end
+end
