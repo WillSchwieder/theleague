@@ -25,7 +25,6 @@ class TeamRostersController < ApplicationController
     fantasy_team_id = params.fetch("query_team_id")
     u_id = session.fetch(:user_id)
     league_id = params.fetch("query_league_id")
-    fantasy_team_id = params.fetch("query_team_id")
     add_date = DateTime.now()
     qb_id = params.fetch("query_qb_id")
     rb1_id = params.fetch("query_rb1_id")
@@ -101,7 +100,7 @@ class TeamRostersController < ApplicationController
 
     if qb.valid?
       qb.save
-      redirect_to("/fantasy_teams", { :notice => "Team roster created successfully." })
+      redirect_to("/fantasy_teams/#{fantasy_team_id}", { :notice => "Team roster created successfully." })
     else
       redirect_to("/team_rosters", { :notice => "Team roster failed to create successfully." })
     end
@@ -131,6 +130,6 @@ class TeamRostersController < ApplicationController
 
     the_team_roster.destroy
 
-    redirect_to("/team_rostersb", { :notice => "Team roster deleted successfully." })
+    redirect_to("/team_rosters", { :notice => "Team roster deleted successfully." })
   end
 end
