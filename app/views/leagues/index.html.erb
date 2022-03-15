@@ -1,46 +1,63 @@
 <% ud = session.fetch(:user_id) %>
 <div class="jumbotron">
   <h1 class="display-3">League Home </h1>
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">
+    Add a New League!
+  </button>
 </div>
-<hr>
-<div>
-  <div>
-    <h2>
-      Add a new league
-    </h2>
-    <form action="/insert_league" method="post">
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-        <input type="text" id="name_box" name="query_name">
-        <label for="year_box">
-        </label>
-        <input type="hidden" id="year_box" name = "query_year" value = <%= DateTime.now.year %>>
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
       </div>
-      <div>
-        <div>
-        <label for="league_type_id">
-          Team Type
-        </label>
-        <select name="query_league_type_id" id="league_type_id">
-          <% Leaguetype.order(:id).each do |a_league_type| %>
-            <option value="<%= a_league_type.id %>">
-              <%= a_league_type.league_type %>
-            </option>
-          <% end %>
-        </select>
-      </div>
-      <button>
-        Create league
-      </button>
-    </form>
+      <form action="/insert_league" method="post">
+        <div class="modal-body">
+          <div>
+            <div>
+              <h2>
+                Add a new league
+              </h2>
+            </div>
+            <div>
+              <label for="name_box">
+                Name
+              </label>
+              <input type="text" id="name_box" name="query_name">
+              <label for="year_box">
+              </label>
+              <input type="hidden" id="year_box" name = "query_year" value = <%= DateTime.now.year %>>
+            </div>
+            <div>
+              <label for="league_type_id">
+                Team Type
+              </label>
+              <select name="query_league_type_id" id="league_type_id">
+                <% Leaguetype.order(:id).each do |a_league_type| %>
+                  <option value="<%= a_league_type.id %>">
+                    <%= a_league_type.league_type %>
+                  </option>
+                <% end %>
+              </select>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="button" class="btn btn-primary">Create Your League</button>
+        </div>
+      </form>
+    </div>
   </div>
 </div>
 <hr>
 <div>
+  <h1> Current Leagues </h1>
   <div>
-    <table>
+    <table class="table table-hover">
       <tr>
         <th>
           ID

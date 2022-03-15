@@ -1,99 +1,164 @@
 <div>
-  <div>
-    <h1>
-      Fantasy team #<%= @the_fantasy_team.id %> details
-    </h1>
-    <div>
-      <div>
-        <a href="/fantasy_teams">
-          Go back
-        </a>
+  <a href="/u/<%= session.fetch(:user_id)%>">
+    Go back
+  </a>
+</div>
+<div>
+  <h1>
+    Fantasy team - <%= @the_fantasy_team.name %>
+  </h1>
+</div>
+<div>
+  .
+</div>
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-sm-4">
+      <% team_type = TeamType.where(:id => @the_fantasy_team.team_type_id).first %>
+      <img class = img-fluid src="<%= team_type.image %>" >
+    </div>
+    <div class="col-sm-4">
+      <dl>
+        <dt>
+          Fantasy Team Name
+        </dt>
+        <dd>
+          <%= @the_fantasy_team.name %>
+        </dd>
+        <dt>
+          Special Power
+        </dt>
+        <dd>
+          <%= team_type.specialpower %>
+        </dd>
+        <dt>
+          Special Power Description
+        </dt>
+        <dd>
+          <%= team_type.description %>
+        </dd>
       </div>
-      
-      <div>
-        <a href="/delete_fantasy_team/<%= @the_fantasy_team.id %>">
-          Delete fantasy team
-        </a>
+      <div class="col-sm-4">
+        <dt>
+          Created at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_fantasy_team.created_at) %> ago
+        </dd>
+        <dt>
+          Updated at
+        </dt>
+        <dd>
+          <%= time_ago_in_words(@the_fantasy_team.updated_at) %> ago
+          <hr>
+          <% u_id = session.fetch(:user_id) %>
+          <% team_roster = TeamRoster.where({ :fantasy_team_id => @the_fantasy_team.id }) %>
+          <% team_user = FantasyTeam.where({:id => @the_fantasy_team.id}).first %>
+          <% if team_user.user_id == u_id %>
+            <% if team_roster.first == nil %>
+              <div>
+                <form action="/draft"  method="get" >
+                  <button class="btn btn-info">Draft your team!</button>
+                </form>
+              </div>
+            <% else %>
+              <div>
+                <form action="/draft"  method="get" >
+                  <button class="btn btn-warning">Edit Your Fantasy Line-Up</button>
+                </form>
+              </div>
+            <% end %>
+          <% else %>
+            <div>
+              <a href="/u/<%= session.fetch(:user_id)%>">
+                <button class="btn btn-primary">Go Back To Your Profile</button>
+              </a>
+            </div>
+          <% end %>
+          <hr>
+        </div>
       </div>
     </div>
-    <dl>
-      <dt>
+  </div>
+</div>
+<hr>
+<div class=container-fluid>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-8">
+    <h1> <%= User.where({:id => team_user.user_id}).first.username %>'s Team!  </h1>
+  </div>
+  <div class="col-md-3">
+  </div>
+  <table class="table table-hover">
+    <tr>
+      <th>
+        ID
+      </th>
+      <th>
         Name
-      </dt>
-      <dd>
-        <%= @the_fantasy_team.name %>
-      </dd>
-      <dt>
-        Team type
-      </dt>
-      <dd>
-        <%= @the_fantasy_team.team_type_id %>
-      </dd>
-      <dt>
-        League
-      </dt>
-      <dd>
-        <%= @the_fantasy_team.league_id %>
-      </dd>
-      <dt>
-        Created at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_fantasy_team.created_at) %> ago
-      </dd>
-      <dt>
-        Updated at
-      </dt>
-      <dd>
-        <%= time_ago_in_words(@the_fantasy_team.updated_at) %> ago
-      </dd>
-    </dl>
-  </div>
+      </th>
+      <th>
+        Pts
+      </th>
+      <th>
+        Team
+      </th>
+      <th>
+      </th>
+    </tr>
+    <% team_roster.each do |a_player| %>
+      <tr>
+        <td>
+          <%= a_player.fantasy_position %>
+        </td>
+        <td>
+          <%= Player.where(:id => a_player.id).first.firstname + " " + Player.where(:id => a_player.id).first.lastname %>
+        </td>
+        <td>
+          10.0
+        </td>
+        <td>
+          NFL Team
+        </td>
+        <td>
+        </td>
+      </tr>
+    <% end %>
+  </table>
 </div>
 <hr>
-<% u_id = session.fetch(:user_id) %>
-<% matching_leagues = League.where({ :user_id => u_id, :league_id => @the_fantasy_team.id }) %>
-<% the_league = matching_leagues.at(0) %>
-<% if the_league == nil %>
-  <form action="/insert_bookmark" method="post">
-    <input name="query_movie_id" type="hidden" value="<%= @the_movie.id %>">
-    <input name="query_user_id" type="hidden" value="<%= session.fetch(:user_id) %>">
-    <button>Bookmark this movie!</button>
-  </form>
-<% else %>
-  <a href="/delete_bookmark/<%= the_bookmark.id %>">
-    Un-bookmark
-  </a>
+<% if u_id == team_user.user_id %>
+<div class=container-fluid>
+  <div class="col-md-1">
+  </div>
+  <div class="col-md-10">
+    <div>
+      <h2>
+        Edit fantasy team
+      </h2>
+      <form action="/modify_fantasy_team/<%= @the_fantasy_team.id %>"  method="post" >
+        <div>
+          <label for="name_box">
+            Name
+          </label>
+          <input type="text" id="name_box" name="query_name" value="<%= @the_fantasy_team.name %>">
+        </div>
+        <button class="btn btn-primary">
+          Update fantasy team
+        </button>
+      </form>
+      <hr>
+      <div>
+        <form action="/delete_fantasy_team/<%= @the_fantasy_team.id %>"  method="get" >
+          <button class="btn btn-danger">Delete fantasy team</button>
+        </form>
+      </div>
+    </div>
+    <hr>
+  </div>
+  <div class="col-md-1">
+  </div>
+</div>
 <% end %>
-<hr>
-<div>
-  <div>
-    <h2>
-      Edit fantasy team
-    </h2>
-    <form action="/modify_fantasy_team/<%= @the_fantasy_team.id %>"  method="post" >
-      <div>
-        <label for="name_box">
-          Name
-        </label>
-        <input type="text" id="name_box" name="query_name" value="<%= @the_fantasy_team.name %>">
-      </div>
-      <div>
-        <label for="team_type_id_box">
-          Team type
-        </label>
-        <input type="text" id="team_type_id_box" name="query_team_type_id" value="<%= @the_fantasy_team.team_type_id %>">
-      </div>
-      <div>
-        <label for="league_id_box">
-          League
-        </label>
-        <input type="text" id="league_id_box" name="query_league_id" value="<%= @the_fantasy_team.league_id %>">
-      </div>
-      <button>
-        Update fantasy team
-      </button>
-    </form>
-  </div>
-</div>
 <hr>

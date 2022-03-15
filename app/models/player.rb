@@ -10,6 +10,7 @@
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #  position_id :integer
+#  team_id     :integer
 #
 class Player < ApplicationRecord
   has_many(:fantasypoints, { :class_name => "Fantasypoint", :foreign_key => "player_id", :dependent => :destroy })
