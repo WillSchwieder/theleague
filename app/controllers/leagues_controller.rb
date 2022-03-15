@@ -34,7 +34,6 @@ class LeaguesController < ApplicationController
     the_league.year = params.fetch("query_year")
     the_league.league_type_id = params.fetch("query_league_type_id")
     the_league.user_id = session.fetch(:user_id)
-    # the_league.image = params.fetch("query_image")
 
     if the_league.valid?
       the_league.save
