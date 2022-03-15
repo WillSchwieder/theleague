@@ -53,17 +53,26 @@
           <hr>
           <% u_id = session.fetch(:user_id) %>
           <% team_roster = TeamRoster.where({ :fantasy_team_id => @the_fantasy_team.id }) %>
-          <% if team_roster.first == nil %>
-            <div>
-              <form action="/draft"  method="get" >
-                <button class="btn btn-info">Draft your team!</button>
-              </form>
-            </div>
+          <% team_user_id = FantasyTeam.where({:id => team_roster.first.fantasy_team_id}).first.user_id %>
+          <% if team_user_id == u_id %>
+            <% if team_roster.first == nil %>
+              <div>
+                <form action="/draft"  method="get" >
+                  <button class="btn btn-info">Draft your team!</button>
+                </form>
+              </div>
+            <% else %>
+              <div>
+                <form action="/draft"  method="get" >
+                  <button class="btn btn-warning">Edit Your Fantasy Line-Up</button>
+                </form>
+              </div>
+            <% end %>
           <% else %>
             <div>
-              <form action="/delete_fantasy_team/<%= @the_fantasy_team.id %>"  method="get" >
-                <button class="btn btn-danger">Delete fantasy team</button>
-              </form>
+              <a href="/u/<%= session.fetch(:user_id)%>">
+                <button class="btn btn-primary">Go Back To Your Profile</button>
+              </a>
             </div>
           <% end %>
           <hr>
@@ -119,6 +128,7 @@
   </table>
 </div>
 <hr>
+<% if u_id == team_user_id %>
 <div class=container-fluid>
   <div class="col-md-1">
   </div>
@@ -150,4 +160,5 @@
   <div class="col-md-1">
   </div>
 </div>
+<% end %>
 <hr>
