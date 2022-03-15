@@ -53,8 +53,8 @@
           <hr>
           <% u_id = session.fetch(:user_id) %>
           <% team_roster = TeamRoster.where({ :fantasy_team_id => @the_fantasy_team.id }) %>
-          <% team_user_id = FantasyTeam.where({:id => team_roster.first.fantasy_team_id}).first.user_id %>
-          <% if team_user_id == u_id %>
+          <% team_user = FantasyTeam.where({:id => @the_fantasy_team.id}).first %>
+          <% if team_user.user_id == u_id %>
             <% if team_roster.first == nil %>
               <div>
                 <form action="/draft"  method="get" >
@@ -86,7 +86,7 @@
   <div class="col-md-1">
   </div>
   <div class="col-md-8">
-    <h1> <%= User.where(:id => u_id).first.username %>'s Team!  </h1>
+    <h1> <%= User.where({:id => team_user.user_id}).first.username %>'s Team!  </h1>
   </div>
   <div class="col-md-3">
   </div>
@@ -128,7 +128,7 @@
   </table>
 </div>
 <hr>
-<% if u_id == team_user_id %>
+<% if u_id == team_user.user_id %>
 <div class=container-fluid>
   <div class="col-md-1">
   </div>
